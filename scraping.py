@@ -18,4 +18,15 @@ print("Plans:", plans, "\nPricing:", pricing)
 
 # TODO(benp): scrape from other sites.
 
+page1 = requests.get('https://www.slashdot.org/')
+
+tree1 = html.fromstring(page1.content)
+
+print("Page object:", tree1)
+
+posts = tree1.xpath('//h2[@class="story"]/text')
+print("Posts:", posts, "\n")
+
+
+
 # EOF
